@@ -10,7 +10,7 @@ const PlayerList = ({ onClick }: Props) => {
   const players = useSelector((state: any) => state.players) as Player[];
 
   return (
-    <Box bg="#66CCFF" width="400px" h="300px" overflow="scroll">
+    <Box bg="#66CCFF" width="400px" h="500px" overflow="scroll">
       <Text textAlign="center" fontSize="24">
         Player List
       </Text>

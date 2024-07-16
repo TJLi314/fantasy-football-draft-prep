@@ -18,6 +18,7 @@ const tiersSlice = createSlice({
     },
 
     tierRemoved: (state) => {
+      lastRank -= 1;
       state.pop();
       return state;
     },

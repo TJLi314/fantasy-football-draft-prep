@@ -1,12 +1,12 @@
 import { Box, Text } from "@chakra-ui/react";
-import { Tier, TierColor, rankMap } from "../common";
+import { Tier, TierColor, numToLetRankMap } from "../common";
 
 interface Props {
   tier: Tier;
 }
 
 const IndividualTier = ({ tier }: Props) => {
-  const { letter, color } = rankMap.get(tier.rank) as TierColor;
+  const { letter, color } = numToLetRankMap.get(tier.rank) as TierColor;
 
   return (
     <Box display="flex" flexDirection="row">

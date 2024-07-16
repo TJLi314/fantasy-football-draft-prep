@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Player, Tier } from "./common";
+import createSelector from "reselect";
+import { Player, Tier } from "../common";
 
 let lastRank = 0;
 
@@ -7,21 +8,28 @@ const tiersSlice = createSlice({
   name: "Tiers",
   initialState: [] as Tier[],
   reducers: {
+    tiersLoaded: (state, action) => {
+      lastRank = action.payload.tiers.length - 1;
+      return action.payload.tiers;
+    },
     tierAdded: (state) => {
       lastRank += 1;
-      state = [...state, { rank: lastRank, players: [] as Player[] }];
+      return [...state, { rank: lastRank, players: [] as Player[] }];
     },
 
     tierRemoved: (state) => {
       state.pop();
+      return state;
     },
 
     playerAddedIntoTier: (state, action) => {
       state[action.payload.rank].players.push(action.payload.player);
+      return state;
     },
   },
 });
 
-export const { tierAdded, tierRemoved, playerAddedIntoTier } =
+export const { tiersLoaded, tierAdded, tierRemoved, playerAddedIntoTier } =
   tiersSlice.actions;
+// export const getTiers = createSelector((state) => state);
 export default tiersSlice.reducer;

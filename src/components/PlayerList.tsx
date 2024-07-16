@@ -1,12 +1,14 @@
 import { Box, Button, Text } from "@chakra-ui/react";
 import { Player } from "../common";
+import { useSelector } from "react-redux";
 
 interface Props {
   onClick: (player: Player) => void;
-  players: Player[];
 }
 
-const PlayerList = ({ onClick, players }: Props) => {
+const PlayerList = ({ onClick }: Props) => {
+  const players = useSelector((state: any) => state.players) as Player[];
+
   return (
     <Box bg="#66CCFF" width="400px" h="300px" overflow="scroll">
       <Text textAlign="center" fontSize="24">

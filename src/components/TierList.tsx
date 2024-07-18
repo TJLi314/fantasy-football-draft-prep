@@ -1,9 +1,12 @@
-import { useSelector } from "react-redux";
 import { Tier } from "../common";
 import IndividualTier from "./IndividualTier";
 
-const TierList = () => {
-  const tiers = useSelector((state: any) => state.tiers) as Tier[];
+interface Props {
+  tiers: Tier[];
+}
+
+const TierList = ({ tiers }: Props) => {
+  // const tiers = useSelector((state: any) => state.tiers) as Tier[];
 
   return (
     <div>

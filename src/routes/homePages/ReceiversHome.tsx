@@ -1,16 +1,16 @@
 import { Box, Button, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Player } from "../common";
-import PlayerInfo from "../components/PlayerInfo";
-import PlayerList from "../components/PlayerList";
-import TierList from "../components/TierList";
-import { receiversLoaded } from "../store/players/receiversSlice";
+import { Player } from "../../common";
+import PlayerInfo from "../../components/PlayerInfo";
+import PlayerList from "../../components/PlayerList";
+import TierList from "../../components/TierList";
+import { receiversLoaded } from "../../store/players/receiversSlice";
 import {
   receiverTierAdded,
   receiverTierRemoved,
   receiverTiersLoaded,
-} from "../store/tiers/receiverTiersSlice";
+} from "../../store/tiers/receiverTiersSlice";
 
 const initialTiers = [
   {
